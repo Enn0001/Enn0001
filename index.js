@@ -38,29 +38,14 @@ function submitComment() {
 submit.addEventListener("click",submitComment)
 -->
 <!--
- var product1 = document.getElementById("product1");
-var qty1 = document.getElementById("qty1");
-var price1 = document.getElementById("price1");
-
-var product2 = document.getElementById("product2");
-var qty2 = document.getElementById("qty2");
-var price2 = document.getElementById("price2");
-
-var product3 = document.getElementById("product3");
-var qty3 = document.getElementById("qty3");
-var price3 = document.getElementById("price3");
-
-var product4 = document.getElementById("product4");
-var qty4 = document.getElementById("qty4");
-var price4 = document.getElementById("price4");
-
-var product5 = document.getElementById("product5");
-var qty5 = document.getElementById("qty5");
-var price5 = document.getElementById("price5");
-
-var product6 = document.getElementById("product6");
-var qty6 = document.getElementById("qty6");
-var price6 = document.getElementById("price6");
+ var products = [];
+for (let i = 1; i <= 6; i++) {
+    products.push({
+        product: document.getElementById("product" + i),
+        qty: document.getElementById("qty" + i),
+        price: document.getElementById("price" + i)
+    });
+}
 
 var carts = document.getElementById("carts");
 var total = document.getElementById("total");
@@ -71,18 +56,16 @@ function addOrder() {
     carts.textContent = "";
     var totalPrice = 0;
 
-    function addToCart(qty, price, product) {
-        var order = qty.value + ' pc/s x ' + price.textContent + ' ------ ' + product.textContent + ' ------ Php ' + (parseFloat(qty.value) * parseFloat(price.textContent)) + '\n';
-        carts.textContent += order;
-        totalPrice += parseFloat(qty.value) * parseFloat(price.textContent);
-    }
+    products.forEach(function(item) {
+        var qtyValue = parseFloat(item.qty.value);
+        var priceValue = parseFloat(item.price.textContent);
 
-    if (parseFloat(qty1.value) > 0) addToCart(qty1, price1, product1);
-    if (parseFloat(qty2.value) > 0) addToCart(qty2, price2, product2);
-    if (parseFloat(qty3.value) > 0) addToCart(qty3, price3, product3);
-    if (parseFloat(qty4.value) > 0) addToCart(qty4, price4, product4);
-    if (parseFloat(qty5.value) > 0) addToCart(qty5, price5, product5);
-    if (parseFloat(qty6.value) > 0) addToCart(qty6, price6, product6);
+        if (qtyValue > 0) {
+            var order = `${qtyValue} pc/s x ${item.price.textContent} ------ ${item.product.textContent} ------ Php ${(qtyValue * priceValue).toFixed(2)}\n`;
+            carts.textContent += order;
+            totalPrice += qtyValue * priceValue;
+        }
+    });
 
     total.value = '₱ ' + totalPrice.toFixed(2);
 }
@@ -108,12 +91,9 @@ function BUYNOW() {
     }
 }
 
-qty1.addEventListener("keyup", addOrder);
-qty2.addEventListener("keyup", addOrder);
-qty3.addEventListener("keyup", addOrder);
-qty4.addEventListener("keyup", addOrder);
-qty5.addEventListener("keyup", addOrder);
-qty6.addEventListener("keyup", addOrder);
+products.forEach(function(item) {
+    item.qty.addEventListener("keyup", addOrder);
+});
 
 cash.addEventListener("keyup", calculateChange);
 
