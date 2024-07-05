@@ -1,4 +1,4 @@
-<-- const btnLike1 = document.getElementById("btnLike1")
+<!-- const btnLike1 = document.getElementById("btnLike1")
 const countLikes1 = document.getElementById("countLikes1")
 const btnLike2 = document.getElementById("btnLike2")
 const countLikes2 = document.getElementById("countLikes2")
@@ -44,6 +44,11 @@ var product1 = document.getElementById("product1")
             var product2 = document.getElementById("product2")
             var qty2 = document.getElementById("qty2")
             var price2 = document.getElementById("price2")
+ 
+            var product3 = document.getElementById("product3")
+            var qty3 = document.getElementById("qty3")
+            var price3 = document.getElementById("price3")
+
 
             var carts = document.getElementById("carts")
             var total = document.getElementById("total")
@@ -62,6 +67,13 @@ var product1 = document.getElementById("product1")
                     //carts.textContent += carts.value.toString() + "\n";
                     carts.textContent += order
             }
+                }
+                if (parseFloat(qty3.value) > 0){
+                    var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + '------' + product3.textContent + '------ Php' + (parseFloat(qty3.value)*parseFloat(price3.textContent)) + '\n'
+                    //carts.textContent += carts.value.toString() + "\n";
+                    carts.textContent += order
+                
             }
             qty1.addEventListener("keyup", addOrder);
             qty2.addEventListener("keyup", addOrder);
+            qty3.addEventListener("keyup", addOrder);
