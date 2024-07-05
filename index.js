@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function BUYNOW() {
+    function buyNow() {
         let totalPrice = parseFloat(total.value.replace('₱ ', ''));
         let cashTendered = parseFloat(cash.value);
         if (cashTendered >= totalPrice) {
@@ -99,5 +99,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     cash.addEventListener("keyup", calculateChange);
 
-    document.getElementById('buyNow').addEventListener('click', BUYNOW);
+    document.getElementById('buyNow').addEventListener('click', buyNow);
 });
