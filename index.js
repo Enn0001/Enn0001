@@ -130,7 +130,7 @@ function buyNow() {
     let totalPrice = parseFloat(total.value.replace('₱ ', ''));
     let cashTendered = parseFloat(cash.value);
     if (cashTendered >= totalPrice) {
-        alert('Thank you for your purchase');
+        alert('salamat');
     } else {
         alert('Insuficient balance');
     }
