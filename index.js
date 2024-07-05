@@ -126,13 +126,13 @@ function calculateChange() {
   }
 }
 
-function BUYNOW() {
+function buyNow() {
     let totalPrice = parseFloat(total.value.replace('₱ ', ''));
     let cashTendered = parseFloat(cash.value);
     if (cashTendered >= totalPrice) {
         alert('Thank you for your purchase');
     } else {
-        alert('kulang bayad');
+        alert('Insuficient balance');
     }
 }
 
