@@ -1,4 +1,4 @@
-<!-- const btnLike1 = document.getElementById("btnLike1")
+/*const btnLike1 = document.getElementById("btnLike1")
 const countLikes1 = document.getElementById("countLikes1")
 const btnLike2 = document.getElementById("btnLike2")
 const countLikes2 = document.getElementById("countLikes2")
@@ -36,8 +36,8 @@ function submitComment() {
 
 }
 submit.addEventListener("click",submitComment)
--->
-<!--
+*/
+
 document.addEventListener('DOMContentLoaded', function() {
     var products = [];
     for (let i = 1; i <= 6; i++) {
