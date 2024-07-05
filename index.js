@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var change = document.getElementById("change");
 
     function addOrder() {
-        carts.textContent = "";
+        carts.textContent = ""; // Clear previous orders
         var totalPrice = 0;
 
         products.forEach(function(item) {
@@ -101,4 +101,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('buyNow').addEventListener('click', BUYNOW);
 });
-
